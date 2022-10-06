@@ -63,6 +63,11 @@ public class Coupon  {
 
 
 
+    public void cancelCoupon(){
+        CouponCanceled couponCanceled = new CouponCanceled(this);
+        couponCanceled.publishAfterCommit();
+
+    }
 
 
 

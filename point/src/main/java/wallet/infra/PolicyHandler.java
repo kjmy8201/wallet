@@ -40,6 +40,23 @@ public class PolicyHandler{
 
     }
 
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CouponCanceled'")
+    public void wheneverCouponCanceled_CompensatePoint(@Payload CouponCanceled couponCanceled){
+
+        CouponCanceled event = couponCanceled;
+        System.out.println("\n\n##### listener CompensatePoint : " + couponCanceled + "\n\n");
+
+
+        
+
+        // Sample Logic //
+        Point.compensatePoint(event);
+        
+
+        
+
+    }
+
 }
 
 

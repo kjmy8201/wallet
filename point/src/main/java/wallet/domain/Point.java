@@ -58,11 +58,36 @@ public class Point  {
         Point point = new Point();
         repository().save(point);
 
+        PointDeducted pointDeducted = new PointDeducted(point);
+        pointDeducted.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
         
         repository().findById(couponPurchased.get???()).ifPresent(point->{
+            
+            point // do something
+            repository().save(point);
+
+            PointDeducted pointDeducted = new PointDeducted(point);
+            pointDeducted.publishAfterCommit();
+
+         });
+        */
+
+        
+    }
+    public static void compensatePoint(CouponCanceled couponCanceled){
+
+        /** Example 1:  new item 
+        Point point = new Point();
+        repository().save(point);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(couponCanceled.get???()).ifPresent(point->{
             
             point // do something
             repository().save(point);
